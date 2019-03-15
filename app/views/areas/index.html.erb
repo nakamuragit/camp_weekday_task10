@@ -1,2 +1,38 @@
-<h1>Areas#index</h1>
-<p>Find me in app/views/areas/index.html.erb</p>
+<% if flash[:notice] %>
+  <div class="col-md-10 offset-md-1 mt-2">
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+<div class = "col-md-10 offset-md-1 mt-5">
+<table class = "table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Zipcode</th>
+      <th>PrefCode</th>
+      <th>Address</th>
+      <th>Kana</th>
+      <th>Introduction</th>
+    </tr>
+  </thead>
+  <% @areas.each do |area| %>
+  <tbody>
+    <tr>
+      <th calss = "border-right"><%= area.id %></th>
+      <td calss = "border-right"><%= area.zipcode %></td>
+      <td calss = "border-right"><%= area.prefcode %></td>
+      <td calss = "border-right"><%= area.address1 %><%= area.address2 %><%= area.address3 %></td>
+      <td calss = "border-right"><%= area.kana1 %><%= area.kana2 %><%= area.kana3 %></td>
+      <td calss = "border-right"><%= area.introduction %></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+<%= link_to "検索する", areas_search_path, class: "btn btn-primary col-md-12"%>
+</div>
+

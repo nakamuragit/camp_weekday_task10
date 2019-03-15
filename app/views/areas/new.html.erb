@@ -1,2 +1,5 @@
-<h1>Areas#new</h1>
-<p>Find me in app/views/areas/new.html.erb</p>
+<%= form_with model: @area, local: true do |form| %>
+<%= form.label "郵便番号" %>
+<%= form.text_field :zipcode %>
+<%= form.submit "検索する"%>
+<% end %>

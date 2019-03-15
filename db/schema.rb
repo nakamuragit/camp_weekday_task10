@@ -13,15 +13,15 @@
 ActiveRecord::Schema.define(version: 2019_03_13_135627) do
 
   create_table "areas", force: :cascade do |t|
-    t.string "zipcode"
+    t.integer "zipcode"
     t.string "prefcode"
-    t.string "adress1"
-    t.string "adress2"
+    t.string "address1"
+    t.string "address2"
     t.string "address3"
     t.string "kana1"
     t.string "kana2"
     t.string "kana3"
-    t.text "introduce"
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
