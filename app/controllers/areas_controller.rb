@@ -9,8 +9,8 @@ class AreasController < ApplicationController
     @area = Area.new
     zipcode = params[:zipcode]
     @hash = research(zipcode)
-    if @hash["status"].to_i != 200
-      flash[:alert] = "#{@hash["message"]}"
+    if @hash["status"].to_i != 200 && @hash["status"]
+      flash.now[:alert] = "#{@hash["message"]}"
       @hash = nil
     else 
       @zipcode = @hash["results"][0]["zipcode"]
